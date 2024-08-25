@@ -1,0 +1,35 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 1.23rem;
+    border-bottom: 1px solid $gray2;
+    @include medias(($s, $m)) {
+      padding: 1.08rem;
+    }
+    .edit {
+      margin-right: auto;
+      margin-left: 1.54rem;
+      @include medias(($s, $m)) {
+        margin-right: inherit;
+        margin-left: inherit;
+      }
+    }
+    .icon {
+      cursor: pointer;
+      font-size: 1.54rem;
+    }
+  }
+  .content {
+    width: 100%;
+    flex: 1;
+  }
+}
+:global(.ant-drawer-close) {
+  font-size: 1.54rem !important;
+}

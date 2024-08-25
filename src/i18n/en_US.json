@@ -1,0 +1,47 @@
+{
+  "translation": {
+    "common": {
+      "setting": "Settings"
+    },
+    "map": {
+      "title": "map",
+      "allMileage": "allMileage",
+      "driveTime": "Drive Time",
+      "driveTime_pattern": "Please type in four number!",
+      "average": "Average",
+      "maxSpend": "Speed",
+      "expectedOil": "Oil",
+      "with": "just run",
+      "info": "TripInfo",
+      "edit": "Edit",
+      "create_again": "Create Again",
+      "edit_startTime": "Starting Time ex 16:24",
+      "edit_startPlace": "Begining Point",
+      "edit_endPlace": "Ending Point",
+      "login_again": "login again",
+      "sys_error": "System error , please click here",
+      "type_mapDetails": "Submit Date",
+      "add_newMap": "Add new map",
+      "check_mapDetails": "SUBMIT",
+      "mapDetails": "Info",
+      "view": "View",
+      "view_date": "Date",
+      "view_current_date": "Date ex: 2023.08.23",
+      "view_hospital": "Target",
+      "view_totalDistance": "Total Distance",
+      "view_totalOil": "Total Oil",
+      "home_start": "China ChengDu"
+    },
+    "login": {
+      "primary_login": "LOGIN",
+      "welcome": "Welcome to Trip",
+      "newUser": "register",
+      "userName": "User name or Email",
+      "password": "Password",
+      "userName_required": "Username is required",
+      "password_required": "Password is required",
+      "logout": "Log out",
+      "current_lan": "English(USA)"
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "organizeImports": { "enabled": true },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "useKeyWithClickEvents": "warn",
+        "noAccessKey": "warn",
+        "noAriaUnsupportedElements": "warn",
+        "noBlankTarget": "warn",
+        "noDistractingElements": "warn",
+        "noHeaderScope": "warn",
+        "noRedundantAlt": "warn",
+        "noRedundantRoles": "warn",
+        "useAltText": "warn",
+        "useAnchorContent": "warn",
+        "useAriaActivedescendantWithTabindex": "warn",
+        "useAriaPropsForRole": "warn",
+        "useHeadingContent": "warn",
+        "useIframeTitle": "warn",
+        "useValidAnchor": "warn",
+        "useValidAriaProps": "warn",
+        "useValidAriaRole": {
+          "level": "warn",
+          "options": { "allowInvalidRoles": [], "ignoreNonDom": true }
+        },
+        "useValidAriaValues": "warn"
+      },
+      "complexity": {
+        "noMultipleSpacesInRegularExpressionLiterals": "error",
+        "noUselessConstructor": "error",
+        "noUselessLabel": "error",
+        "noUselessLoneBlockStatements": "error",
+        "noUselessRename": "error",
+        "noWith": "error"
+      },
+      "correctness": {
+        "noConstAssign": "warn",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noGlobalObjectCalls": "error",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noNewSymbol": "warn",
+        "noSelfAssign": "warn",
+        "noUndeclaredVariables": "error",
+        "noUnreachable": "warn",
+        "noUnreachableSuper": "warn",
+        "noUnusedLabels": "error",
+        "noUnusedVariables": "error",
+        "useArrayLiterals": "warn",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error",
+        "useIsNan": "warn",
+        "useYield": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtmlWithChildren": "error",
+        "noGlobalEval": "error"
+      },
+      "style": {
+        "useConst": {
+          "level": "warn",
+          "fix": "unsafe"
+        },
+        "useTemplate": {
+          "level": "warn",
+          "fix": "safe"
+        },
+        "noCommaOperator": "warn",
+        "noRestrictedGlobals": {
+          "level": "error",
+          "options": {
+            "deniedGlobals": [
+              "addEventListener",
+              "blur",
+              "close",
+              "closed",
+              "confirm",
+              "defaultStatus",
+              "defaultstatus",
+              "event",
+              "external",
+              "find",
+              "focus",
+              "frameElement",
+              "frames",
+              "history",
+              "innerHeight",
+              "innerWidth",
+              "length",
+              "location",
+              "locationbar",
+              "menubar",
+              "moveBy",
+              "moveTo",
+              "name",
+              "onblur",
+              "onerror",
+              "onfocus",
+              "onload",
+              "onresize",
+              "onunload",
+              "open",
+              "opener",
+              "opera",
+              "outerHeight",
+              "outerWidth",
+              "pageXOffset",
+              "pageYOffset",
+              "parent",
+              "print",
+              "removeEventListener",
+              "resizeBy",
+              "resizeTo",
+              "screen",
+              "screenLeft",
+              "screenTop",
+              "screenX",
+              "screenY",
+              "scroll",
+              "scrollbars",
+              "scrollBy",
+              "scrollTo",
+              "scrollX",
+              "scrollY",
+              "self",
+              "status",
+              "statusbar",
+              "stop",
+              "toolbar",
+              "top"
+            ]
+          }
+        }
+      },
+      "suspicious": {
+        "noCatchAssign": "warn",
+        "noCommentText": "warn",
+        "noControlCharactersInRegex": "warn",
+        "noDoubleEquals": "warn",
+        "noDuplicateCase": "warn",
+        "noDuplicateClassMembers": "warn",
+        "noDuplicateJsxProps": "warn",
+        "noDuplicateObjectKeys": "warn",
+        "noDuplicateParameters": "warn",
+        "noFallthroughSwitchClause": "warn",
+        "noFunctionAssign": "warn",
+        "noGlobalAssign": "warn",
+        "noLabelVar": "warn",
+        "noRedeclare": "warn",
+        "noSelfCompare": "warn",
+        "noShadowRestrictedNames": "warn",
+        "noUnsafeNegation": "warn",
+        "useGetterReturn": "warn",
+        "useValidTypeof": "warn"
+      }
+    },
+    "ignore": [
+      "./.vscode/*",
+      "node_modules",
+      "src/shared/i18n/*",
+      "src/shared/libs/*",
+      "src/shared/assets/**/*/"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "lineWidth": 120
+    }
+  }
+}

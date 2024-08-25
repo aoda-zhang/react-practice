@@ -1,0 +1,128 @@
+.ViewMap {
+  margin: -0.77rem;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.43rem;
+    box-sizing: border-box;
+    padding: 0.59rem;
+    background-color: $gray8;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 0.57rem 0.86rem;
+      color: white;
+      background-color: $gray6;
+      border-radius: 1.43rem;
+
+      .time {
+        display: flex;
+        grid-gap: 0.71rem;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.43rem;
+        padding-bottom: 0.57rem;
+        border-bottom: 1px solid $gray7;
+        .left {
+          display: flex;
+          gap: 0.77rem;
+          align-items: center;
+          .carIcon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            width: 1.54rem;
+            height: 1.54rem;
+            padding: 0.23rem;
+            background-color: #275bfa;
+            border-radius: 50%;
+          }
+          .text {
+            color: $gray5;
+            font-size: 0.92rem;
+          }
+        }
+        .follow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0.15rem 0.31rem;
+          border: 1px solid $gray5;
+          border-radius: 1.54rem;
+          color: $gray5;
+          font-size: 0.62rem;
+        }
+      }
+
+      .destination {
+        display: flex;
+        gap: 0.71rem;
+        margin-bottom: 1.54rem;
+        .icon {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .redC {
+          display: inline-block;
+          width: 0.62rem;
+          height: 0.62rem;
+          background-color: $green7;
+          border-radius: 50%;
+        }
+
+        .borderC {
+          display: inline-block;
+          width: 2px;
+          height: 1.54rem;
+          background: #2f86d9;
+        }
+
+        .greenC {
+          display: inline-block;
+          width: 0.62rem;
+          height: 0.62rem;
+          background-color: #e12834;
+          border-radius: 50%;
+        }
+
+        .name {
+          display: flex;
+          flex-direction: column;
+          gap: 0.92rem;
+        }
+      }
+
+      .spendTime {
+        display: flex;
+        justify-content: space-between;
+        color: $gray5;
+        .column {
+          @include column;
+          gap: 0.62rem;
+          font-size: 0.8rem;
+          align-items: center;
+          .value {
+            margin-right: 0.214rem;
+            color: $gray1;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+          .unit {
+            display: inline-block;
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+
+  .save {
+    margin-top: 1.54rem;
+  }
+}

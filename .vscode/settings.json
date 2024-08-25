@@ -23,5 +23,9 @@
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "i18n-ally.localesPaths": ["src/shared/i18n"],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

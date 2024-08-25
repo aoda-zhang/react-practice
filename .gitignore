@@ -118,7 +118,6 @@ dist
 
 tsconfig.tsbuildinfo
 
-# Pls isgonor your config files in real project!!!
-# src/config/*
-# !src/config/index.ts
+src/config/*
+!src/config/index.ts
 .env

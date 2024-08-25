@@ -1,16 +1,15 @@
+import { ConfigProvider } from "antd";
+import { App as AtdApp } from "antd";
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
-import { ConfigProvider } from "antd";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { App as AtdApp } from "antd";
 
 import "antd/dist/reset.css";
 
 import App from "./App";
 import envConfig from "./config";
 
-import "./shared/i18n";
+import "./i18n";
 const theme = {
   token: {
     colorPrimary: envConfig?.systemSettings?.colorPrimary,
@@ -31,11 +30,9 @@ root.render(
   <React.StrictMode>
     <ConfigProvider theme={theme}>
       <AtdApp>
-        <Router>
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </Router>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </AtdApp>
     </ConfigProvider>
   </React.StrictMode>,

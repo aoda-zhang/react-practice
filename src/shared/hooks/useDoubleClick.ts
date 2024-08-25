@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useDoubleClick = onDoubleClick => {
+const useDoubleClick = (onDoubleClick) => {
   useEffect(() => {
     const handleDoubleClick = () => {
       if (onDoubleClick) {

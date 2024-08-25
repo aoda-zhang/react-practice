@@ -1,15 +1,18 @@
-import { message } from "antd";
-import { commonHeader, HttpBusinessMappingCode } from "./types";
-import storage from "@/shared/utils/storage";
-import authAPI from "@/pages/Auth/apis";
 import envConfig from "@/config";
+import authAPI from "@/pages/Auth/apis";
+import storage from "@/shared/utils/storage";
+import { message } from "antd";
+import { HttpBusinessMappingCode, commonHeader } from "./types";
 const jwtExpiredHandle = async () => {
   try {
-    const newAuthToken = await authAPI.refreshToken({
-      refreshToken: storage.get(commonHeader.refreshToken),
-    });
-    await storage.set(commonHeader["access-token"], newAuthToken?.accessToken);
-    await storage.set(commonHeader.refreshToken, newAuthToken?.refreshToken);
+    if (storage.get(commonHeader.refreshToken)) {
+      const newAuthToken = await authAPI.refreshToken({
+        refreshToken: storage.get(commonHeader.refreshToken),
+      });
+      await storage.set(commonHeader["access-token"], newAuthToken?.accessToken);
+      await storage.set(commonHeader.refreshToken, newAuthToken?.refreshToken);
+    }
+    throw new Error(`登陆信息有误，请重新检查`);
   } catch (error) {
     message.error(`登陆信息有误，请重新检查！${error}`);
     await storage.remove(commonHeader["access-token"]);
@@ -18,7 +21,7 @@ const jwtExpiredHandle = async () => {
   }
 };
 
-const httpErrorHandler = async error => {
+const httpErrorHandler = async (error) => {
   if (error?.data === HttpBusinessMappingCode.jwtexpired) {
     jwtExpiredHandle();
   }
@@ -31,11 +34,7 @@ const httpErrorHandler = async error => {
       message.error(`${envConfig?.systemSettings?.commonErrorMessage}`);
       break;
     default:
-      message.error(
-        error?.message
-          ? error?.message
-          : `${envConfig?.systemSettings?.commonErrorMessage}`,
-      );
+      message.error(error?.message ? error?.message : `${envConfig?.systemSettings?.commonErrorMessage}`);
     // window.location.href = "/error";
   }
 };

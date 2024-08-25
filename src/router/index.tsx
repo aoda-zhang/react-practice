@@ -1,36 +1,39 @@
 import React from "react";
-import { Navigate, RouteObject } from "react-router-dom";
+import { Navigate, type RouteObject, createBrowserRouter } from "react-router-dom";
 
 import Login from "@/pages/Auth/Login";
 import Register from "@/pages/Auth/Register";
 import History from "@/pages/History";
-import Home from "@/pages/Home";
-import Setting from "@/pages/Setting";
-import ErrorPage from "@/pages/Error";
-import Map from "@/pages/Map";
-import EditMap from "@/pages/Map/EditMap";
-import ViewMap from "@/pages/Map/ViewMap";
+import Trip from "@/pages/Trip";
+import EditTrip from "@/pages/Trip/EditTrip";
+import ViewTrip from "@/pages/Trip/ViewTrip";
+import ErrorPage from "@/shared/components/Error";
+import Layout from "@/shared/components/Layout";
 
-const routerList: RouteObject[] = [
+const routers: RouteObject[] = [
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "home",
-    element: <Home />,
-  },
-  {
-    path: "map",
-    element: <Map />,
+    element: <Layout />,
     children: [
+      { path: "/", element: <Navigate to="/trip/edit" replace /> },
       {
-        path: "edit",
-        element: <EditMap />,
+        path: "trip",
+        element: <Trip />,
+        children: [
+          {
+            path: "edit",
+            element: <EditTrip />,
+          },
+          {
+            path: "view",
+            element: <ViewTrip />,
+            handle: { isMenuAvaliable: false },
+          },
+        ],
       },
       {
-        path: "view",
-        element: <ViewMap />,
+        path: "history",
+        element: <History />,
       },
     ],
   },
@@ -43,34 +46,15 @@ const routerList: RouteObject[] = [
     element: <Register />,
   },
   {
-    path: "history",
-    element: <History />,
-  },
-  {
     path: "error",
     element: <ErrorPage />,
   },
-  {
-    path: "setting",
-    element: <Setting />,
-    children: [
-      {
-        path: "setting/a",
-        element: <div>内容A</div>,
-      },
-      {
-        path: "setting/b",
-        element: <div>内容B</div>,
-      },
-      {
-        path: "setting/*",
-        element: <Navigate to={"/setting/a"} replace />,
-      },
-    ],
-  },
+
   {
     path: "*",
-    element: <Home />,
+    element: <ErrorPage />,
   },
 ];
-export default routerList;
+const RouterOptions = createBrowserRouter(routers);
+
+export default RouterOptions;

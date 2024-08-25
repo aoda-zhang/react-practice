@@ -1,8 +1,8 @@
 import httpService from "@/shared/libs/http";
-import { FormValue } from "@/typings/map.types";
+import type { TripInfo } from "@/typings/trip.types";
 
 class HistoryAPI {
-  addmapHistory = (mapHistory: FormValue) => {
+  addmapHistory = (mapHistory: { spendDate: string; mapInfo: TripInfo[] }) => {
     return httpService.postAPI("/history/add", mapHistory);
   };
 }

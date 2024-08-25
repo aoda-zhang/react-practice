@@ -1,9 +1,0 @@
-script/
-node_modules/
-setupProxy.js
-.stylelintrc.js
-config/
-src/route/*
-src/shared/i18n/*
-src/shared/libs/*
-craco.config.js

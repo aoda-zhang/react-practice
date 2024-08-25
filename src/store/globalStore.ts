@@ -1,33 +1,68 @@
-import { create } from "zustand";
 import _ from "lodash";
+import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { MapProcessStatus, MapProcessStatusItem } from "@/typings/map.types";
-import { HospitalItem } from "@/typings/hospital.types";
+import envConfig from "@/config";
+import type LocaleKeys from "@/shared/constants/localeKey";
+import createSRTime from "@/shared/utils/SRTime";
+import getLocale from "@/shared/utils/getLocale";
+import type { UserInfoType } from "@/typings/auth.types";
+import type { DestinationItem } from "@/typings/destination.types";
 import StorageKeys from "@/typings/storage.types";
-type GlobalStage = { hospitals: HospitalItem[]; mapStatus: MapProcessStatus };
+import type { MapProcessStatusItem, TripFormType, TripProcessStatus } from "@/typings/trip.types";
+type GlobalStage = {
+  destinations: DestinationItem[];
+  tripStatus: TripProcessStatus;
+  locale: LocaleKeys;
+  userInfo: UserInfoType;
+  latestTrip: TripFormType;
+};
 type GlobalAction = {
-  setHospital: (data: any[]) => void;
-  setMapStatus: (mapStatusItem: MapProcessStatusItem) => void;
+  setDestination: (data: DestinationItem[]) => void;
+  setTripStatus: (mapStatusItem: MapProcessStatusItem) => void;
+  setUserInfo: (userInfo: UserInfoType) => void;
+  setLocale: (locale: LocaleKeys) => void;
+  setLatestTrip: (trip: TripFormType) => void;
+  setDefaultTrip: () => void;
+};
+const defaultTrip = {
+  mapInfo: [
+    {
+      from: `${envConfig?.map?.homeStart[getLocale()]}`,
+      startTime: createSRTime(),
+      to: "",
+      allMileage: null,
+      spendTime: null,
+    },
+  ],
 };
 const initialState: GlobalStage = {
-  mapStatus: {
+  tripStatus: {
     isFillMapDate: true,
     isEdit: false,
     isView: false,
     isInfoOpen: false,
   },
-  hospitals: [],
+  locale: getLocale(),
+  latestTrip: defaultTrip,
+  destinations: [],
+  userInfo: {
+    userName: "",
+  },
 };
-const globalPersist = persist<GlobalStage & GlobalAction>(
-  set => ({
+const globalStorePersist = persist<GlobalStage & GlobalAction>(
+  (set) => ({
     ...initialState,
-    setHospital: (data = []) =>
-      set(state => ({
-        hospitals: _.uniqBy([...(state?.hospitals ?? []), ...data], "value"),
+    setDestination: (data = []) =>
+      set((state) => ({
+        destinations: _.uniqBy([...(state?.destinations ?? []), ...data], "value"),
       })),
-    setMapStatus: (mapStatusItem: MapProcessStatusItem) =>
-      set(state => ({ mapStatus: { ...state.mapStatus, ...mapStatusItem } })),
+    setTripStatus: (mapStatusItem: MapProcessStatusItem) =>
+      set((state) => ({ tripStatus: { ...state.tripStatus, ...mapStatusItem } })),
+    setUserInfo: (userInfo: UserInfoType) => set(() => ({ userInfo })),
+    setLatestTrip: (latestTrip: TripFormType) => set(() => ({ latestTrip })),
+    setDefaultTrip: () => set(() => ({ latestTrip: defaultTrip })),
+    setLocale: (locale: LocaleKeys) => set(() => ({ locale })),
   }),
   {
     name: StorageKeys.globalState,
@@ -35,5 +70,5 @@ const globalPersist = persist<GlobalStage & GlobalAction>(
   },
 );
 
-const globalStore = create<GlobalStage & GlobalAction>()(globalPersist);
+const globalStore = create<GlobalStage & GlobalAction>()(globalStorePersist);
 export default globalStore;

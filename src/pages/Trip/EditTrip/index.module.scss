@@ -1,0 +1,33 @@
+.edit {
+  flex: 1;
+  .date {
+    margin-bottom: 1.54rem;
+  }
+
+  :global(.ant-row) {
+    display: block;
+  }
+
+  .floatButton {
+    right: 30%;
+    bottom: 8%;
+    @include medias(($s, $m)) {
+      right: 10%;
+    }
+  }
+
+  :global(.ant-space .ant-space-item) {
+    text-align: left;
+    width: 100%;
+  }
+
+  :global(.ant-select-selector) {
+    width: 100%;
+  }
+
+  :global(.ant-space-align-baseline) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

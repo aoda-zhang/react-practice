@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import path from "node:path";
 import ViteYaml from "@modyfi/vite-plugin-yaml";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   envPrefix: "REACT_APP_",
@@ -25,9 +25,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./src/shared/styles/theme.scss";
-        @import "./src/shared/styles/medias.scss";
-        @import "./src/shared/styles/common.scss";`,
+        additionalData: `@import "./src/shared/assets/styles/theme.scss";
+        @import "./src/shared/assets/styles/medias.scss";
+        @import "./src/shared/assets/styles/font.scss";
+        @import "./src/shared/assets/styles/common.scss";`,
       },
     },
   },

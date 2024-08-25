@@ -1,0 +1,22 @@
+.map {
+  box-sizing: border-box;
+  padding: 0.77rem;
+  // Only Desktop and PC is active
+  @include medias(($l, $xl)) {
+    box-sizing: border-box;
+    padding: 0 38%;
+    padding-top: 6%;
+  }
+  .spendDate {
+    margin: 1.54rem 0;
+    width: 100%;
+  }
+  .buttons {
+    @include medias(($l, $xl)) {
+      padding: 0;
+    }
+  }
+  :global(.ant-btn) {
+    width: 100%;
+  }
+}

@@ -1,3 +1,8 @@
+export type UserInfoType = {
+  userName: string;
+  [key: string]: unknown;
+};
+
 export type AuthFieldType = {
   userName?: string;
   password?: string;
@@ -6,4 +11,5 @@ export type AuthFieldType = {
 export type LoginInfo = {
   accessToken: string;
   refreshToken: string;
+  baseUserInfo: UserInfoType;
 };

@@ -1,5 +1,5 @@
-import CryptoJS from "crypto-js";
 import envConfig from "@/config";
+import CryptoJS from "crypto-js";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
@@ -11,10 +11,7 @@ export const getUTCTimestamp = () => {
   return Math.floor(dayjs.utc().valueOf() / 1000);
 };
 const formatUrl = (url: string) => {
-  return url
-    .replace(envConfig?.http?.prefix, "")
-    .replace(/\//g, "")
-    ?.toLowerCase();
+  return url.replace(envConfig?.http?.prefix, "").replace(/\//g, "")?.toLowerCase();
 };
 export const generateHMAC = ({ config, timestamp }: HMACParams): string => {
   const { data, url = "", method = "" } = config;

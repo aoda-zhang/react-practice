@@ -1,5 +1,5 @@
 import httpService from "@/shared/libs/http";
-import { AuthFieldType, LoginInfo } from "@/typings/auth.types";
+import type { AuthFieldType, LoginInfo } from "@/typings/auth.types";
 class AuthAPI {
   register = (userInfo: AuthFieldType) => {
     return httpService.postAPI("/auth/register", userInfo);
