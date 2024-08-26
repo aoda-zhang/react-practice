@@ -1,13 +1,7 @@
 import { FormOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import classNames from "classnames";
-import React, { type FC, memo, useEffect, useMemo, useState } from "react";
-import {
-  type NonIndexRouteObject,
-  Outlet,
-  useLocation,
-  useMatches,
-  useNavigate,
-} from "react-router-dom";
+import React, { type FC, memo, useMemo, useState } from "react";
+import { Navigate, type NonIndexRouteObject, Outlet, useLocation, useMatches, useNavigate } from "react-router-dom";
 
 import storageTool from "@/shared/utils/storage";
 import globalStore from "@/store/globalStore";
@@ -26,20 +20,16 @@ const Layout: FC = () => {
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const isMenuAvaliable = useMemo(() => {
-    const currentMatch: NonIndexRouteObject = matches.find(
-      (match) => match.pathname === location.pathname,
-    );
+    const currentMatch: NonIndexRouteObject = matches.find((match) => match.pathname === location.pathname);
     return currentMatch?.handle?.isMenuAvaliable ?? true;
   }, [location.pathname, matches]);
 
-  const isExistToken = useMemo(() => {
-    return storageTool.get(StorageKeys.accessToken);
-  }, []);
-  useEffect(() => {
-    if (!isExistToken) {
-      navigate("/login");
-    }
-  }, [isExistToken, navigate]);
+  const isExistToken = storageTool.get(StorageKeys.accessToken);
+
+  if (!isExistToken) {
+    return <Navigate to="/login" replace />;
+  }
+
   const Header = () => {
     return (
       <>
@@ -69,16 +59,12 @@ const Layout: FC = () => {
     );
   };
   return (
-    <>
-      {isExistToken && (
-        <div className={styles.layout}>
-          <Header />
-          <main className={styles.content}>
-            <Outlet />
-          </main>
-        </div>
-      )}
-    </>
+    <div className={styles.layout}>
+      <Header />
+      <main className={styles.content}>
+        <Outlet />
+      </main>
+    </div>
   );
 };
 export default memo(Layout);
