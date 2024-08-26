@@ -1,5 +1,5 @@
 import { LoginOutlined, SettingOutlined } from "@ant-design/icons";
-import { Avatar, Divider, Dropdown, Modal, type MenuProps } from "antd";
+import { Avatar, Divider, Dropdown, type MenuProps, Modal } from "antd";
 import React, { type FC, memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";

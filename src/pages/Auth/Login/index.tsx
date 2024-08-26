@@ -13,10 +13,10 @@ import StorageKeys from "@/typings/storage.types";
 
 import authAPI from "../apis";
 
-import style from "./index.module.scss";
-import LanSwitcher from "@/shared/components/LanSwitcher";
 import envConfig from "@/config";
 import ImageWithSkeleton from "@/shared/components/ImageWithSkeleton";
+import LanSwitcher from "@/shared/components/LanSwitcher";
+import style from "./index.module.scss";
 
 const Login: FC = () => {
   const navigate = useNavigate();
@@ -72,19 +72,11 @@ const Login: FC = () => {
             name="password"
             rules={[{ required: true, message: t("login.password_required") }]}
           >
-            <Input.Password
-              size="large"
-              prefix={<img src={pwd} alt="password" className={style.pwd} />}
-            />
+            <Input.Password size="large" prefix={<img src={pwd} alt="password" className={style.pwd} />} />
           </Form.Item>
 
           <Form.Item>
-            <Button
-              loading={isLoading}
-              type="primary"
-              htmlType="submit"
-              className={style.submitBtn}
-            >
+            <Button loading={isLoading} type="primary" htmlType="submit" className={style.submitBtn}>
               {t("login.primary_login")}
             </Button>
           </Form.Item>
