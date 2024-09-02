@@ -1,1 +1,1 @@
-# From FrontEnd to FullStack (FrontEnd) 
+# To be a JavaScript FullStack (FrontEnd)
