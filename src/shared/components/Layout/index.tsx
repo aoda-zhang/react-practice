@@ -1,6 +1,6 @@
 import { FormOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import classNames from "classnames";
-import React, { type FC, memo, useMemo, useState } from "react";
+import { type FC, memo, useMemo, useState } from "react";
 import { Navigate, type NonIndexRouteObject, Outlet, useLocation, useMatches, useNavigate } from "react-router-dom";
 
 import storageTool from "@/shared/utils/storage";

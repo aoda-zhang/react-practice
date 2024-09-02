@@ -1,6 +1,6 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
-import React, { type FC, memo, useState } from "react";
+import { type FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";

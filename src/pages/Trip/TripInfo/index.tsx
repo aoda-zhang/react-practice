@@ -1,5 +1,5 @@
 import { Drawer } from "antd";
-import React, { type FC, memo } from "react";
+import { type FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 
 import mapStore from "../store";

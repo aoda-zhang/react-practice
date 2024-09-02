@@ -1,4 +1,4 @@
-import React, { type FC, memo } from "react";
+import { type FC, memo } from "react";
 import { Outlet } from "react-router-dom";
 
 import useDoubleClick from "@/shared/hooks/useDoubleClick";

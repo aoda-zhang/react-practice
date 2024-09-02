@@ -1,5 +1,5 @@
 import { Skeleton } from "antd";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import LazyLoad from "react-lazyload";
 
 export default function ImageWithSkeleton({ imgSrc, title = "", className = "" }) {

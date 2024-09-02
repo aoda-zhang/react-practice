@@ -1,5 +1,5 @@
 import { App, AutoComplete, Button, Form, Input, Space } from "antd";
-import React, { type FC, memo, useCallback, useEffect } from "react";
+import { type FC, memo, useCallback, useEffect } from "react";
 import "dayjs/locale/zh-cn";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";

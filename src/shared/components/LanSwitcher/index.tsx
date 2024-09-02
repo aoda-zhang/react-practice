@@ -4,7 +4,7 @@ import LocaleKeys from "@/shared/constants/localeKey";
 import globalStore from "@/store/globalStore";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, type MenuProps, Space } from "antd";
-import React, { memo } from "react";
+import { memo } from "react";
 
 const LanSwitcher = () => {
   const { setLocale, locale } = globalStore();

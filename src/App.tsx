@@ -1,6 +1,5 @@
 import "normalize.css";
 import { useEffect } from "react";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { RouterProvider } from "react-router-dom";
 

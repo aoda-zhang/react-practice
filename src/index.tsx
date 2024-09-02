@@ -1,6 +1,5 @@
 import { ConfigProvider } from "antd";
 import { App as AtdApp } from "antd";
-import React from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -10,6 +9,7 @@ import App from "./App";
 import envConfig from "./config";
 
 import "./i18n";
+import { StrictMode } from "react";
 const theme = {
   token: {
     colorPrimary: envConfig?.systemSettings?.colorPrimary,
@@ -27,7 +27,7 @@ const queryClient = new QueryClient({
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <ConfigProvider theme={theme}>
       <AtdApp>
         <QueryClientProvider client={queryClient}>
@@ -35,5 +35,5 @@ root.render(
         </QueryClientProvider>
       </AtdApp>
     </ConfigProvider>
-  </React.StrictMode>,
+  </StrictMode>,
 );

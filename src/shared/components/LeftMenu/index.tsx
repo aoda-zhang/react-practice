@@ -1,6 +1,6 @@
 import { HistoryOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import { Drawer } from "antd";
-import React, { type FC, memo } from "react";
+import { type FC, memo } from "react";
 
 import styles from "./index.module.scss";
 type Props = {
