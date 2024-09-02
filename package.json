@@ -49,9 +49,7 @@
     "build:UAT": "tsc && vite build --mode uat"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx,json,md}": [
-      "pnpm biome:check"
-    ]
+    "src/**/*.{ts,tsx,js,jsx,json,md}": ["pnpm biome:check"]
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
